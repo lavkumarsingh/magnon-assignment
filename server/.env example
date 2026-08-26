@@ -1,0 +1,2 @@
+GROQ_API_KEY= # Generate Groq API key and past it here. https://groq.com
+PORT= # Add port number
