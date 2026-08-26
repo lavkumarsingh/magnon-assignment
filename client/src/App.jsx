@@ -14,7 +14,8 @@ function App() {
     setResult(null)
 
     try {
-      const res = await fetch('http://localhost:3001/api/processWithLLM', {
+      const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+      const res = await fetch(`${baseUrl}/api/processWithLLM`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, description }),
