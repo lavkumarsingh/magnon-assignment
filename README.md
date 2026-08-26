@@ -87,10 +87,9 @@ This is two apps. Create **two Vercel projects** from the same Git repo (import 
 3. Framework: Express (or Other). No build command. Output: leave default.
 4. Environment variables:
    - `GROQ_API_KEY` — your Groq key
-   - `CLIENT_ORIGIN` — the UI URL, e.g. `https://your-app.vercel.app` (set this after the UI is deployed, then redeploy the API)
+   - `PORT` — your port
 5. Deploy. Copy the URL, e.g. `https://magnon-api.vercel.app`.
 
-Local `app.listen` is skipped on Vercel (`VERCEL` is set). The Express app is exported instead.
 
 ### B. UI (`client/`)
 
@@ -102,7 +101,6 @@ Local `app.listen` is skipped on Vercel (`VERCEL` is set). The Express app is ex
      No trailing slash. Do **not** use the UI URL.
    - Check **Production** (Development only affects `vercel dev`).
 4. **Deployments → ⋯ → Redeploy** and **uncheck** “Use existing Build Cache”. CRA inlines the variable at build time; saving env vars does not change an old bundle.
-5. Confirm in DevTools → Network that the POST goes to `https://your-api.vercel.app/api/processWithLLM`, not `localhost`.
 
 ### Order
 
